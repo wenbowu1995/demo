@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generate.TCustomerDao">
+  <resultMap id="BaseResultMap" type="generate.TCustomer">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="ctm_parent_id" jdbcType="BIGINT" property="ctmParentId" />
+    <result column="ctm_code" jdbcType="VARCHAR" property="ctmCode" />
+    <result column="ctm_name" jdbcType="VARCHAR" property="ctmName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="sales_type" jdbcType="INTEGER" property="salesType" />
+    <result column="ctm_type" jdbcType="INTEGER" property="ctmType" />
+    <result column="oem_company_id" jdbcType="BIGINT" property="oemCompanyId" />
+    <result column="dlr_company_id" jdbcType="BIGINT" property="dlrCompanyId" />
+    <result column="dealer_id" jdbcType="BIGINT" property="dealerId" />
+    <result column="hall_id" jdbcType="BIGINT" property="hallId" />
+    <result column="large_ctm_id" jdbcType="VARCHAR" property="largeCtmId" />
+    <result column="source_type" jdbcType="INTEGER" property="sourceType" />
+    <result column="business_model" jdbcType="BIGINT" property="businessModel" />
+    <result column="first_source" jdbcType="BIGINT" property="firstSource" />
+    <result column="second_source" jdbcType="BIGINT" property="secondSource" />
+    <result column="activity_id" jdbcType="BIGINT" property="activityId" />
+    <result column="ctm_way" jdbcType="VARCHAR" property="ctmWay" />
+    <result column="ctm_get_media" jdbcType="VARCHAR" property="ctmGetMedia" />
+    <result column="ctm_way_memo" jdbcType="VARCHAR" property="ctmWayMemo" />
+    <result column="ctm_sales_id" jdbcType="BIGINT" property="ctmSalesId" />
+    <result column="dis_time" jdbcType="TIMESTAMP" property="disTime" />
+    <result column="ctm_status" jdbcType="INTEGER" property="ctmStatus" />
+    <result column="ctm_level" jdbcType="BIGINT" property="ctmLevel" />
+    <result column="create_card_date" jdbcType="TIMESTAMP" property="createCardDate" />
+    <result column="ctm_first_come_date" jdbcType="DATE" property="ctmFirstComeDate" />
+    <result column="ctm_follow_status" jdbcType="VARCHAR" property="ctmFollowStatus" />
+    <result column="follow_number" jdbcType="INTEGER" property="followNumber" />
+    <result column="last_follow_date" jdbcType="DATE" property="lastFollowDate" />
+    <result column="next_follow_date" jdbcType="DATE" property="nextFollowDate" />
+    <result column="is_app" jdbcType="INTEGER" property="isApp" />
+    <result column="old_company_id" jdbcType="BIGINT" property="oldCompanyId" />
+    <result column="merge_time" jdbcType="TIMESTAMP" property="mergeTime" />
+    <result column="com_name" jdbcType="VARCHAR" property="comName" />
+    <result column="com_province" jdbcType="BIGINT" property="comProvince" />
+    <result column="com_city" jdbcType="BIGINT" property="comCity" />
+    <result column="com_county" jdbcType="BIGINT" property="comCounty" />
+    <result column="com_property" jdbcType="INTEGER" property="comProperty" />
+    <result column="com_state_operation" jdbcType="VARCHAR" property="comStateOperation" />
+    <result column="com_code" jdbcType="VARCHAR" property="comCode" />
+    <result column="com_add" jdbcType="VARCHAR" property="comAdd" />
+    <result column="com_url" jdbcType="VARCHAR" property="comUrl" />
+    <result column="com_industry_type_one" jdbcType="INTEGER" property="comIndustryTypeOne" />
+    <result column="com_industry_type_two" jdbcType="INTEGER" property="comIndustryTypeTwo" />
+    <result column="com_industry_type_three" jdbcType="INTEGER" property="comIndustryTypeThree" />
+    <result column="com_industry_type" jdbcType="INTEGER" property="comIndustryType" />
+    <result column="com_main_business" jdbcType="VARCHAR" property="comMainBusiness" />
+    <result column="com_turnover" jdbcType="VARCHAR" property="comTurnover" />
+    <result column="com_tel" jdbcType="VARCHAR" property="comTel" />
+    <result column="com_email" jdbcType="VARCHAR" property="comEmail" />
+    <result column="com_scale" jdbcType="INTEGER" property="comScale" />
+    <result column="com_super_org" jdbcType="VARCHAR" property="comSuperOrg" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="is_send" jdbcType="INTEGER" property="isSend" />
+    <result column="send_time" jdbcType="TIMESTAMP" property="sendTime" />
+    <result column="send_result_code" jdbcType="INTEGER" property="sendResultCode" />
+    <result column="com_way" jdbcType="INTEGER" property="comWay" />
+    <result column="ctm_property" jdbcType="INTEGER" property="ctmProperty" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="BIGINT" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="activity_channel_define" jdbcType="BIGINT" property="activityChannelDefine" />
+    <result column="activity_media" jdbcType="BIGINT" property="activityMedia" />
+    <result column="smart_score" jdbcType="VARCHAR" property="smartScore" />
+    <result column="lmp_task_id" jdbcType="BIGINT" property="lmpTaskId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ctm_parent_id, ctm_code, ctm_name, mobile, sales_type, ctm_type, oem_company_id, 
+    dlr_company_id, dealer_id, hall_id, large_ctm_id, source_type, business_model, first_source, 
+    second_source, activity_id, ctm_way, ctm_get_media, ctm_way_memo, ctm_sales_id, dis_time, 
+    ctm_status, ctm_level, create_card_date, ctm_first_come_date, ctm_follow_status, 
+    follow_number, last_follow_date, next_follow_date, is_app, old_company_id, merge_time, 
+    com_name, com_province, com_city, com_county, com_property, com_state_operation, 
+    com_code, com_add, com_url, com_industry_type_one, com_industry_type_two, com_industry_type_three, 
+    com_industry_type, com_main_business, com_turnover, com_tel, com_email, com_scale, 
+    com_super_org, memo, is_send, send_time, send_result_code, com_way, ctm_property, 
+    is_deleted, create_by, create_time, update_by, update_time, activity_channel_define, 
+    activity_media, smart_score, lmp_task_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_customer
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_customer
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="generate.TCustomer" useGeneratedKeys="true">
+    insert into t_customer (ctm_parent_id, ctm_code, ctm_name, 
+      mobile, sales_type, ctm_type, 
+      oem_company_id, dlr_company_id, dealer_id, 
+      hall_id, large_ctm_id, source_type, 
+      business_model, first_source, second_source, 
+      activity_id, ctm_way, ctm_get_media, 
+      ctm_way_memo, ctm_sales_id, dis_time, 
+      ctm_status, ctm_level, create_card_date, 
+      ctm_first_come_date, ctm_follow_status, follow_number, 
+      last_follow_date, next_follow_date, is_app, 
+      old_company_id, merge_time, com_name, 
+      com_province, com_city, com_county, 
+      com_property, com_state_operation, com_code, 
+      com_add, com_url, com_industry_type_one, 
+      com_industry_type_two, com_industry_type_three, 
+      com_industry_type, com_main_business, com_turnover, 
+      com_tel, com_email, com_scale, 
+      com_super_org, memo, is_send, 
+      send_time, send_result_code, com_way, 
+      ctm_property, is_deleted, create_by, 
+      create_time, update_by, update_time, 
+      activity_channel_define, activity_media, smart_score, 
+      lmp_task_id)
+    values (#{ctmParentId,jdbcType=BIGINT}, #{ctmCode,jdbcType=VARCHAR}, #{ctmName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{salesType,jdbcType=INTEGER}, #{ctmType,jdbcType=INTEGER}, 
+      #{oemCompanyId,jdbcType=BIGINT}, #{dlrCompanyId,jdbcType=BIGINT}, #{dealerId,jdbcType=BIGINT}, 
+      #{hallId,jdbcType=BIGINT}, #{largeCtmId,jdbcType=VARCHAR}, #{sourceType,jdbcType=INTEGER}, 
+      #{businessModel,jdbcType=BIGINT}, #{firstSource,jdbcType=BIGINT}, #{secondSource,jdbcType=BIGINT}, 
+      #{activityId,jdbcType=BIGINT}, #{ctmWay,jdbcType=VARCHAR}, #{ctmGetMedia,jdbcType=VARCHAR}, 
+      #{ctmWayMemo,jdbcType=VARCHAR}, #{ctmSalesId,jdbcType=BIGINT}, #{disTime,jdbcType=TIMESTAMP}, 
+      #{ctmStatus,jdbcType=INTEGER}, #{ctmLevel,jdbcType=BIGINT}, #{createCardDate,jdbcType=TIMESTAMP}, 
+      #{ctmFirstComeDate,jdbcType=DATE}, #{ctmFollowStatus,jdbcType=VARCHAR}, #{followNumber,jdbcType=INTEGER}, 
+      #{lastFollowDate,jdbcType=DATE}, #{nextFollowDate,jdbcType=DATE}, #{isApp,jdbcType=INTEGER}, 
+      #{oldCompanyId,jdbcType=BIGINT}, #{mergeTime,jdbcType=TIMESTAMP}, #{comName,jdbcType=VARCHAR}, 
+      #{comProvince,jdbcType=BIGINT}, #{comCity,jdbcType=BIGINT}, #{comCounty,jdbcType=BIGINT}, 
+      #{comProperty,jdbcType=INTEGER}, #{comStateOperation,jdbcType=VARCHAR}, #{comCode,jdbcType=VARCHAR}, 
+      #{comAdd,jdbcType=VARCHAR}, #{comUrl,jdbcType=VARCHAR}, #{comIndustryTypeOne,jdbcType=INTEGER}, 
+      #{comIndustryTypeTwo,jdbcType=INTEGER}, #{comIndustryTypeThree,jdbcType=INTEGER}, 
+      #{comIndustryType,jdbcType=INTEGER}, #{comMainBusiness,jdbcType=VARCHAR}, #{comTurnover,jdbcType=VARCHAR}, 
+      #{comTel,jdbcType=VARCHAR}, #{comEmail,jdbcType=VARCHAR}, #{comScale,jdbcType=INTEGER}, 
+      #{comSuperOrg,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{isSend,jdbcType=INTEGER}, 
+      #{sendTime,jdbcType=TIMESTAMP}, #{sendResultCode,jdbcType=INTEGER}, #{comWay,jdbcType=INTEGER}, 
+      #{ctmProperty,jdbcType=INTEGER}, #{isDeleted,jdbcType=INTEGER}, #{createBy,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{activityChannelDefine,jdbcType=BIGINT}, #{activityMedia,jdbcType=BIGINT}, #{smartScore,jdbcType=VARCHAR}, 
+      #{lmpTaskId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="generate.TCustomer" useGeneratedKeys="true">
+    insert into t_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ctmParentId != null">
+        ctm_parent_id,
+      </if>
+      <if test="ctmCode != null">
+        ctm_code,
+      </if>
+      <if test="ctmName != null">
+        ctm_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="salesType != null">
+        sales_type,
+      </if>
+      <if test="ctmType != null">
+        ctm_type,
+      </if>
+      <if test="oemCompanyId != null">
+        oem_company_id,
+      </if>
+      <if test="dlrCompanyId != null">
+        dlr_company_id,
+      </if>
+      <if test="dealerId != null">
+        dealer_id,
+      </if>
+      <if test="hallId != null">
+        hall_id,
+      </if>
+      <if test="largeCtmId != null">
+        large_ctm_id,
+      </if>
+      <if test="sourceType != null">
+        source_type,
+      </if>
+      <if test="businessModel != null">
+        business_model,
+      </if>
+      <if test="firstSource != null">
+        first_source,
+      </if>
+      <if test="secondSource != null">
+        second_source,
+      </if>
+      <if test="activityId != null">
+        activity_id,
+      </if>
+      <if test="ctmWay != null">
+        ctm_way,
+      </if>
+      <if test="ctmGetMedia != null">
+        ctm_get_media,
+      </if>
+      <if test="ctmWayMemo != null">
+        ctm_way_memo,
+      </if>
+      <if test="ctmSalesId != null">
+        ctm_sales_id,
+      </if>
+      <if test="disTime != null">
+        dis_time,
+      </if>
+      <if test="ctmStatus != null">
+        ctm_status,
+      </if>
+      <if test="ctmLevel != null">
+        ctm_level,
+      </if>
+      <if test="createCardDate != null">
+        create_card_date,
+      </if>
+      <if test="ctmFirstComeDate != null">
+        ctm_first_come_date,
+      </if>
+      <if test="ctmFollowStatus != null">
+        ctm_follow_status,
+      </if>
+      <if test="followNumber != null">
+        follow_number,
+      </if>
+      <if test="lastFollowDate != null">
+        last_follow_date,
+      </if>
+      <if test="nextFollowDate != null">
+        next_follow_date,
+      </if>
+      <if test="isApp != null">
+        is_app,
+      </if>
+      <if test="oldCompanyId != null">
+        old_company_id,
+      </if>
+      <if test="mergeTime != null">
+        merge_time,
+      </if>
+      <if test="comName != null">
+        com_name,
+      </if>
+      <if test="comProvince != null">
+        com_province,
+      </if>
+      <if test="comCity != null">
+        com_city,
+      </if>
+      <if test="comCounty != null">
+        com_county,
+      </if>
+      <if test="comProperty != null">
+        com_property,
+      </if>
+      <if test="comStateOperation != null">
+        com_state_operation,
+      </if>
+      <if test="comCode != null">
+        com_code,
+      </if>
+      <if test="comAdd != null">
+        com_add,
+      </if>
+      <if test="comUrl != null">
+        com_url,
+      </if>
+      <if test="comIndustryTypeOne != null">
+        com_industry_type_one,
+      </if>
+      <if test="comIndustryTypeTwo != null">
+        com_industry_type_two,
+      </if>
+      <if test="comIndustryTypeThree != null">
+        com_industry_type_three,
+      </if>
+      <if test="comIndustryType != null">
+        com_industry_type,
+      </if>
+      <if test="comMainBusiness != null">
+        com_main_business,
+      </if>
+      <if test="comTurnover != null">
+        com_turnover,
+      </if>
+      <if test="comTel != null">
+        com_tel,
+      </if>
+      <if test="comEmail != null">
+        com_email,
+      </if>
+      <if test="comScale != null">
+        com_scale,
+      </if>
+      <if test="comSuperOrg != null">
+        com_super_org,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="isSend != null">
+        is_send,
+      </if>
+      <if test="sendTime != null">
+        send_time,
+      </if>
+      <if test="sendResultCode != null">
+        send_result_code,
+      </if>
+      <if test="comWay != null">
+        com_way,
+      </if>
+      <if test="ctmProperty != null">
+        ctm_property,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="activityChannelDefine != null">
+        activity_channel_define,
+      </if>
+      <if test="activityMedia != null">
+        activity_media,
+      </if>
+      <if test="smartScore != null">
+        smart_score,
+      </if>
+      <if test="lmpTaskId != null">
+        lmp_task_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ctmParentId != null">
+        #{ctmParentId,jdbcType=BIGINT},
+      </if>
+      <if test="ctmCode != null">
+        #{ctmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ctmName != null">
+        #{ctmName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="salesType != null">
+        #{salesType,jdbcType=INTEGER},
+      </if>
+      <if test="ctmType != null">
+        #{ctmType,jdbcType=INTEGER},
+      </if>
+      <if test="oemCompanyId != null">
+        #{oemCompanyId,jdbcType=BIGINT},
+      </if>
+      <if test="dlrCompanyId != null">
+        #{dlrCompanyId,jdbcType=BIGINT},
+      </if>
+      <if test="dealerId != null">
+        #{dealerId,jdbcType=BIGINT},
+      </if>
+      <if test="hallId != null">
+        #{hallId,jdbcType=BIGINT},
+      </if>
+      <if test="largeCtmId != null">
+        #{largeCtmId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=INTEGER},
+      </if>
+      <if test="businessModel != null">
+        #{businessModel,jdbcType=BIGINT},
+      </if>
+      <if test="firstSource != null">
+        #{firstSource,jdbcType=BIGINT},
+      </if>
+      <if test="secondSource != null">
+        #{secondSource,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null">
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="ctmWay != null">
+        #{ctmWay,jdbcType=VARCHAR},
+      </if>
+      <if test="ctmGetMedia != null">
+        #{ctmGetMedia,jdbcType=VARCHAR},
+      </if>
+      <if test="ctmWayMemo != null">
+        #{ctmWayMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="ctmSalesId != null">
+        #{ctmSalesId,jdbcType=BIGINT},
+      </if>
+      <if test="disTime != null">
+        #{disTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctmStatus != null">
+        #{ctmStatus,jdbcType=INTEGER},
+      </if>
+      <if test="ctmLevel != null">
+        #{ctmLevel,jdbcType=BIGINT},
+      </if>
+      <if test="createCardDate != null">
+        #{createCardDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctmFirstComeDate != null">
+        #{ctmFirstComeDate,jdbcType=DATE},
+      </if>
+      <if test="ctmFollowStatus != null">
+        #{ctmFollowStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="followNumber != null">
+        #{followNumber,jdbcType=INTEGER},
+      </if>
+      <if test="lastFollowDate != null">
+        #{lastFollowDate,jdbcType=DATE},
+      </if>
+      <if test="nextFollowDate != null">
+        #{nextFollowDate,jdbcType=DATE},
+      </if>
+      <if test="isApp != null">
+        #{isApp,jdbcType=INTEGER},
+      </if>
+      <if test="oldCompanyId != null">
+        #{oldCompanyId,jdbcType=BIGINT},
+      </if>
+      <if test="mergeTime != null">
+        #{mergeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comName != null">
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comProvince != null">
+        #{comProvince,jdbcType=BIGINT},
+      </if>
+      <if test="comCity != null">
+        #{comCity,jdbcType=BIGINT},
+      </if>
+      <if test="comCounty != null">
+        #{comCounty,jdbcType=BIGINT},
+      </if>
+      <if test="comProperty != null">
+        #{comProperty,jdbcType=INTEGER},
+      </if>
+      <if test="comStateOperation != null">
+        #{comStateOperation,jdbcType=VARCHAR},
+      </if>
+      <if test="comCode != null">
+        #{comCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comAdd != null">
+        #{comAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="comUrl != null">
+        #{comUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="comIndustryTypeOne != null">
+        #{comIndustryTypeOne,jdbcType=INTEGER},
+      </if>
+      <if test="comIndustryTypeTwo != null">
+        #{comIndustryTypeTwo,jdbcType=INTEGER},
+      </if>
+      <if test="comIndustryTypeThree != null">
+        #{comIndustryTypeThree,jdbcType=INTEGER},
+      </if>
+      <if test="comIndustryType != null">
+        #{comIndustryType,jdbcType=INTEGER},
+      </if>
+      <if test="comMainBusiness != null">
+        #{comMainBusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="comTurnover != null">
+        #{comTurnover,jdbcType=VARCHAR},
+      </if>
+      <if test="comTel != null">
+        #{comTel,jdbcType=VARCHAR},
+      </if>
+      <if test="comEmail != null">
+        #{comEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="comScale != null">
+        #{comScale,jdbcType=INTEGER},
+      </if>
+      <if test="comSuperOrg != null">
+        #{comSuperOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="isSend != null">
+        #{isSend,jdbcType=INTEGER},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendResultCode != null">
+        #{sendResultCode,jdbcType=INTEGER},
+      </if>
+      <if test="comWay != null">
+        #{comWay,jdbcType=INTEGER},
+      </if>
+      <if test="ctmProperty != null">
+        #{ctmProperty,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityChannelDefine != null">
+        #{activityChannelDefine,jdbcType=BIGINT},
+      </if>
+      <if test="activityMedia != null">
+        #{activityMedia,jdbcType=BIGINT},
+      </if>
+      <if test="smartScore != null">
+        #{smartScore,jdbcType=VARCHAR},
+      </if>
+      <if test="lmpTaskId != null">
+        #{lmpTaskId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="generate.TCustomer">
+    update t_customer
+    <set>
+      <if test="ctmParentId != null">
+        ctm_parent_id = #{ctmParentId,jdbcType=BIGINT},
+      </if>
+      <if test="ctmCode != null">
+        ctm_code = #{ctmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ctmName != null">
+        ctm_name = #{ctmName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="salesType != null">
+        sales_type = #{salesType,jdbcType=INTEGER},
+      </if>
+      <if test="ctmType != null">
+        ctm_type = #{ctmType,jdbcType=INTEGER},
+      </if>
+      <if test="oemCompanyId != null">
+        oem_company_id = #{oemCompanyId,jdbcType=BIGINT},
+      </if>
+      <if test="dlrCompanyId != null">
+        dlr_company_id = #{dlrCompanyId,jdbcType=BIGINT},
+      </if>
+      <if test="dealerId != null">
+        dealer_id = #{dealerId,jdbcType=BIGINT},
+      </if>
+      <if test="hallId != null">
+        hall_id = #{hallId,jdbcType=BIGINT},
+      </if>
+      <if test="largeCtmId != null">
+        large_ctm_id = #{largeCtmId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=INTEGER},
+      </if>
+      <if test="businessModel != null">
+        business_model = #{businessModel,jdbcType=BIGINT},
+      </if>
+      <if test="firstSource != null">
+        first_source = #{firstSource,jdbcType=BIGINT},
+      </if>
+      <if test="secondSource != null">
+        second_source = #{secondSource,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null">
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="ctmWay != null">
+        ctm_way = #{ctmWay,jdbcType=VARCHAR},
+      </if>
+      <if test="ctmGetMedia != null">
+        ctm_get_media = #{ctmGetMedia,jdbcType=VARCHAR},
+      </if>
+      <if test="ctmWayMemo != null">
+        ctm_way_memo = #{ctmWayMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="ctmSalesId != null">
+        ctm_sales_id = #{ctmSalesId,jdbcType=BIGINT},
+      </if>
+      <if test="disTime != null">
+        dis_time = #{disTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctmStatus != null">
+        ctm_status = #{ctmStatus,jdbcType=INTEGER},
+      </if>
+      <if test="ctmLevel != null">
+        ctm_level = #{ctmLevel,jdbcType=BIGINT},
+      </if>
+      <if test="createCardDate != null">
+        create_card_date = #{createCardDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctmFirstComeDate != null">
+        ctm_first_come_date = #{ctmFirstComeDate,jdbcType=DATE},
+      </if>
+      <if test="ctmFollowStatus != null">
+        ctm_follow_status = #{ctmFollowStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="followNumber != null">
+        follow_number = #{followNumber,jdbcType=INTEGER},
+      </if>
+      <if test="lastFollowDate != null">
+        last_follow_date = #{lastFollowDate,jdbcType=DATE},
+      </if>
+      <if test="nextFollowDate != null">
+        next_follow_date = #{nextFollowDate,jdbcType=DATE},
+      </if>
+      <if test="isApp != null">
+        is_app = #{isApp,jdbcType=INTEGER},
+      </if>
+      <if test="oldCompanyId != null">
+        old_company_id = #{oldCompanyId,jdbcType=BIGINT},
+      </if>
+      <if test="mergeTime != null">
+        merge_time = #{mergeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comName != null">
+        com_name = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comProvince != null">
+        com_province = #{comProvince,jdbcType=BIGINT},
+      </if>
+      <if test="comCity != null">
+        com_city = #{comCity,jdbcType=BIGINT},
+      </if>
+      <if test="comCounty != null">
+        com_county = #{comCounty,jdbcType=BIGINT},
+      </if>
+      <if test="comProperty != null">
+        com_property = #{comProperty,jdbcType=INTEGER},
+      </if>
+      <if test="comStateOperation != null">
+        com_state_operation = #{comStateOperation,jdbcType=VARCHAR},
+      </if>
+      <if test="comCode != null">
+        com_code = #{comCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comAdd != null">
+        com_add = #{comAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="comUrl != null">
+        com_url = #{comUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="comIndustryTypeOne != null">
+        com_industry_type_one = #{comIndustryTypeOne,jdbcType=INTEGER},
+      </if>
+      <if test="comIndustryTypeTwo != null">
+        com_industry_type_two = #{comIndustryTypeTwo,jdbcType=INTEGER},
+      </if>
+      <if test="comIndustryTypeThree != null">
+        com_industry_type_three = #{comIndustryTypeThree,jdbcType=INTEGER},
+      </if>
+      <if test="comIndustryType != null">
+        com_industry_type = #{comIndustryType,jdbcType=INTEGER},
+      </if>
+      <if test="comMainBusiness != null">
+        com_main_business = #{comMainBusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="comTurnover != null">
+        com_turnover = #{comTurnover,jdbcType=VARCHAR},
+      </if>
+      <if test="comTel != null">
+        com_tel = #{comTel,jdbcType=VARCHAR},
+      </if>
+      <if test="comEmail != null">
+        com_email = #{comEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="comScale != null">
+        com_scale = #{comScale,jdbcType=INTEGER},
+      </if>
+      <if test="comSuperOrg != null">
+        com_super_org = #{comSuperOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="isSend != null">
+        is_send = #{isSend,jdbcType=INTEGER},
+      </if>
+      <if test="sendTime != null">
+        send_time = #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendResultCode != null">
+        send_result_code = #{sendResultCode,jdbcType=INTEGER},
+      </if>
+      <if test="comWay != null">
+        com_way = #{comWay,jdbcType=INTEGER},
+      </if>
+      <if test="ctmProperty != null">
+        ctm_property = #{ctmProperty,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityChannelDefine != null">
+        activity_channel_define = #{activityChannelDefine,jdbcType=BIGINT},
+      </if>
+      <if test="activityMedia != null">
+        activity_media = #{activityMedia,jdbcType=BIGINT},
+      </if>
+      <if test="smartScore != null">
+        smart_score = #{smartScore,jdbcType=VARCHAR},
+      </if>
+      <if test="lmpTaskId != null">
+        lmp_task_id = #{lmpTaskId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="generate.TCustomer">
+    update t_customer
+    set ctm_parent_id = #{ctmParentId,jdbcType=BIGINT},
+      ctm_code = #{ctmCode,jdbcType=VARCHAR},
+      ctm_name = #{ctmName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      sales_type = #{salesType,jdbcType=INTEGER},
+      ctm_type = #{ctmType,jdbcType=INTEGER},
+      oem_company_id = #{oemCompanyId,jdbcType=BIGINT},
+      dlr_company_id = #{dlrCompanyId,jdbcType=BIGINT},
+      dealer_id = #{dealerId,jdbcType=BIGINT},
+      hall_id = #{hallId,jdbcType=BIGINT},
+      large_ctm_id = #{largeCtmId,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=INTEGER},
+      business_model = #{businessModel,jdbcType=BIGINT},
+      first_source = #{firstSource,jdbcType=BIGINT},
+      second_source = #{secondSource,jdbcType=BIGINT},
+      activity_id = #{activityId,jdbcType=BIGINT},
+      ctm_way = #{ctmWay,jdbcType=VARCHAR},
+      ctm_get_media = #{ctmGetMedia,jdbcType=VARCHAR},
+      ctm_way_memo = #{ctmWayMemo,jdbcType=VARCHAR},
+      ctm_sales_id = #{ctmSalesId,jdbcType=BIGINT},
+      dis_time = #{disTime,jdbcType=TIMESTAMP},
+      ctm_status = #{ctmStatus,jdbcType=INTEGER},
+      ctm_level = #{ctmLevel,jdbcType=BIGINT},
+      create_card_date = #{createCardDate,jdbcType=TIMESTAMP},
+      ctm_first_come_date = #{ctmFirstComeDate,jdbcType=DATE},
+      ctm_follow_status = #{ctmFollowStatus,jdbcType=VARCHAR},
+      follow_number = #{followNumber,jdbcType=INTEGER},
+      last_follow_date = #{lastFollowDate,jdbcType=DATE},
+      next_follow_date = #{nextFollowDate,jdbcType=DATE},
+      is_app = #{isApp,jdbcType=INTEGER},
+      old_company_id = #{oldCompanyId,jdbcType=BIGINT},
+      merge_time = #{mergeTime,jdbcType=TIMESTAMP},
+      com_name = #{comName,jdbcType=VARCHAR},
+      com_province = #{comProvince,jdbcType=BIGINT},
+      com_city = #{comCity,jdbcType=BIGINT},
+      com_county = #{comCounty,jdbcType=BIGINT},
+      com_property = #{comProperty,jdbcType=INTEGER},
+      com_state_operation = #{comStateOperation,jdbcType=VARCHAR},
+      com_code = #{comCode,jdbcType=VARCHAR},
+      com_add = #{comAdd,jdbcType=VARCHAR},
+      com_url = #{comUrl,jdbcType=VARCHAR},
+      com_industry_type_one = #{comIndustryTypeOne,jdbcType=INTEGER},
+      com_industry_type_two = #{comIndustryTypeTwo,jdbcType=INTEGER},
+      com_industry_type_three = #{comIndustryTypeThree,jdbcType=INTEGER},
+      com_industry_type = #{comIndustryType,jdbcType=INTEGER},
+      com_main_business = #{comMainBusiness,jdbcType=VARCHAR},
+      com_turnover = #{comTurnover,jdbcType=VARCHAR},
+      com_tel = #{comTel,jdbcType=VARCHAR},
+      com_email = #{comEmail,jdbcType=VARCHAR},
+      com_scale = #{comScale,jdbcType=INTEGER},
+      com_super_org = #{comSuperOrg,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      is_send = #{isSend,jdbcType=INTEGER},
+      send_time = #{sendTime,jdbcType=TIMESTAMP},
+      send_result_code = #{sendResultCode,jdbcType=INTEGER},
+      com_way = #{comWay,jdbcType=INTEGER},
+      ctm_property = #{ctmProperty,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      activity_channel_define = #{activityChannelDefine,jdbcType=BIGINT},
+      activity_media = #{activityMedia,jdbcType=BIGINT},
+      smart_score = #{smartScore,jdbcType=VARCHAR},
+      lmp_task_id = #{lmpTaskId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
