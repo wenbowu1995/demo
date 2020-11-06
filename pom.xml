@@ -10,10 +10,14 @@
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
-            <groupId>be.yildiz-games</groupId>
-            <artifactId>bom-lombok</artifactId>
-            <version>1.0.3</version>
-            <type>pom</type>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.4</version>
         </dependency>
     </dependencies>
     <modules>
