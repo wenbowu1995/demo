@@ -1,7 +1,7 @@
 package testCoupon;
 
 import java.awt.*;
-
+//win10系统通知DEMO
 class TrayIconDemo {
     private static TrayIconDemo instance = new TrayIconDemo();
     private SystemTray tray;

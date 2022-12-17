@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-
+//日志文件提取可运行SQL
 public class GetSql {
     public static void main(String[] args) throws IOException, UnsupportedFlavorException, AWTException {
 
