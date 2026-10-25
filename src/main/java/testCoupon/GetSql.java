@@ -7,7 +7,6 @@ import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 //日志文件提取可运行SQL
@@ -33,20 +32,14 @@ public class GetSql {
         String[] d = c.split(", ");
 
         Map<String, String> e = new HashMap<>();
-        for (int i = 0; i < d.length; i++) {
-            String[] f = d[i].split("=");
+        for (String s : d) {
+            String[] f = s.split("=");
             e.put(f[0], f.length > 1 ? f[1] : "");
         }
-        for (Iterator<Entry<String, String>> it = e.entrySet().iterator(); it.hasNext(); ) {
-            Map.Entry<String, String> item = it.next();
-            if ("".equals(item.getValue()) || "null".equals(item.getValue())) {
-                it.remove();
-            }
-        }
+        e.entrySet().removeIf(item -> "".equals(item.getValue()) || "null".equals(item.getValue()));
         String f = b;
-        for (Iterator<Entry<String, String>> it = e.entrySet().iterator(); it.hasNext(); ) {
-            Map.Entry<String, String> item = it.next();
-            f = f.replaceAll(":" + item.getKey(), "\""+item.getValue()+"\"");
+        for (Entry<String, String> item : e.entrySet()) {
+            f = f.replaceAll(":" + item.getKey(), "\"" + item.getValue() + "\"");
         }
         System.out.println(f);
 

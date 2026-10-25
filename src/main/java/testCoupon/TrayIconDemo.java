@@ -3,9 +3,9 @@ package testCoupon;
 import java.awt.*;
 //win10系统通知DEMO
 class TrayIconDemo {
-    private static TrayIconDemo instance = new TrayIconDemo();
+    private static final TrayIconDemo instance = new TrayIconDemo();
     private SystemTray tray;
-    private Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
+    private final Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
     private TrayIcon trayIcon;
     void message(String content) throws AWTException {
         if (tray==null){

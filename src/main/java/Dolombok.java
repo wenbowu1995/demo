@@ -9,7 +9,6 @@ public class Dolombok {
     static
     TCustomerDao tCustomerDao;
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
         TCustomer record = new TCustomer();
         tCustomerDao.insert(record);
     }
